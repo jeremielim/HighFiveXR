@@ -1,4 +1,6 @@
+using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class MoverForward : MonoBehaviour
 {
@@ -14,6 +16,11 @@ public class MoverForward : MonoBehaviour
     public void FixedUpdate()
     {
         Move();
+        
+        if (transform.position.z < -3)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void Move()
@@ -24,5 +31,6 @@ public class MoverForward : MonoBehaviour
     public void StopMoving()
     {
         rb.velocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
     }
 }

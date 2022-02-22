@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -10,7 +8,6 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] private float _spawnRangeY;
     [SerializeField] private float _startDelay;
     [SerializeField] private GameManager _gameManager;
-    
 
     private float _spawnInterval;
 
@@ -26,7 +23,7 @@ public class SpawnManager : MonoBehaviour
         var spawnPos = new Vector3(Random.Range(-_spawnRangeX, _spawnRangeX), Random.Range(-_spawnRangeY, _spawnRangeY),
             20f);
         var newTarget = Instantiate(_spherePrefab, spawnPos, randRot);
-       
+
 
         // check if player is alive
         if (_gameManager.isAlive())
@@ -36,11 +33,13 @@ public class SpawnManager : MonoBehaviour
         else
         {
             CancelInvoke();
-        }
-    }
 
-    private void Update()
-    {
-        
+            // optimize stop new spawned hands from moving
+            foreach (var target in GameObject.FindGameObjectsWithTag("Target"))
+            {
+                target.GetComponent<MoverForward>().StopMoving();
+                
+            }
+        }
     }
 }

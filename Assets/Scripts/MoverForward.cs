@@ -13,12 +13,16 @@ public class MoverForward : MonoBehaviour
 
     public void FixedUpdate()
     {
-        rb.AddForce(Vector3.back * randAcc, ForceMode.Force);
+        Move();
+    }
 
-        // Destroy if obj goes behind camera
-        if (transform.position.z < -1)
-        {
-            Destroy(gameObject);
-        }
+    private void Move()
+    {
+        rb.AddForce(Vector3.back * randAcc, ForceMode.Force);
+    }
+
+    public void StopMoving()
+    {
+        rb.velocity = Vector3.zero;
     }
 }

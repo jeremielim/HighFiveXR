@@ -32,14 +32,14 @@ public class SpawnManager : MonoBehaviour
         }
         else
         {
-            CancelInvoke();
-
             // optimize stop new spawned hands from moving
             foreach (var target in GameObject.FindGameObjectsWithTag("Target"))
             {
-                target.GetComponent<MoverForward>().StopMoving();
-                
+                Destroy(target);
             }
+            CancelInvoke();
+
+            
         }
     }
 }

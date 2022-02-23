@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="52767464-804c-407b-b5a8-194671dd2a00" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.HighFiveXR/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.HighFiveXR/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Target.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Target.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Start.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Start.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/HitBounds.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/HitBounds.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MoverForward.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MoverForward.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SpawnManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SpawnManager.cs" afterDir="false" />
-    </list>
+    <list default="true" id="52767464-804c-407b-b5a8-194671dd2a00" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -74,7 +67,7 @@
       <option name="presentableId" value="Default" />
       <updated>1645556588211</updated>
       <workItem from="1645556606096" duration="620000" />
-      <workItem from="1645557540481" duration="2910000" />
+      <workItem from="1645557540481" duration="3295000" />
     </task>
     <servers />
   </component>

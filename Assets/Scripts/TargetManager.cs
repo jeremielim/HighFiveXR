@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class MoverForward : MonoBehaviour
+public class TargetManager : MonoBehaviour
 {
     private Rigidbody rb;
     private int randAcc;

@@ -58,7 +58,18 @@ public class GameManager : MonoBehaviour
         _score += scoreAmount;
     }
 
-    // Game over
-
-    // top score
+    public void GameOver()
+    {
+        _startButton.SetActive(true);
+        _isAlive = false;
+        _spawnManager.enabled = false;
+        _spawnManager._willSpawn = false;
+    }
+    
+    
+    [System.Serializable]
+    class SaveData
+    {
+        public Color topScore;
+    }
 }

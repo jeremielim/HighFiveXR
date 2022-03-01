@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -9,11 +10,17 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] private float _startDelay;
     [SerializeField] private GameManager _gameManager;
 
+    public bool _willSpawn;
     private float _spawnInterval;
+    
 
-    private void Start()
+    private void Update()
     {
+        // check if game has started
+        if (!_willSpawn) return;
+        
         Invoke(nameof(SpawnTarget), 0.5f);
+        _willSpawn = false;
     }
 
     private void SpawnTarget()
@@ -23,8 +30,7 @@ public class SpawnManager : MonoBehaviour
         var spawnPos = new Vector3(Random.Range(-_spawnRangeX, _spawnRangeX), Random.Range(-_spawnRangeY, _spawnRangeY),
             20f);
         var newTarget = Instantiate(_spherePrefab, spawnPos, randRot);
-
-
+        
         // check if player is alive
         if (_gameManager.isAlive())
         {
@@ -37,9 +43,8 @@ public class SpawnManager : MonoBehaviour
             {
                 Destroy(target);
             }
-            CancelInvoke();
 
-            
+            CancelInvoke();
         }
     }
 }

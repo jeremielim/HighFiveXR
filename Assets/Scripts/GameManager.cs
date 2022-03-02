@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        _highScoreText.text = "" + _highScore;
+        _highScoreText.text = "High score: " + _highScore;
         _spawnManagerComponent = _spawnManager.GetComponent<SpawnManager>();
         _lifeStart = 3;
         _livesLeft = _lifeStart;

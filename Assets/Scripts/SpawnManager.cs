@@ -1,27 +1,15 @@
-using System;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class SpawnManager : MonoBehaviour
 {
-    [SerializeField] private GameObject _spherePrefab;
+    [SerializeField] private GameObject _targetPrefab;
     [SerializeField] private float _spawnRangeX;
     [SerializeField] private float _spawnRangeY;
     [SerializeField] private float _startDelay;
     [SerializeField] private GameManager _gameManager;
-
-    public bool _willSpawn;
-    private float _spawnInterval;
     
-
-    private void Update()
-    {
-        // check if game has started
-        if (!_willSpawn) return;
-        
-        Invoke(nameof(SpawnTarget), 0.5f);
-        _willSpawn = false;
-    }
+    private float _spawnInterval;
 
     private void SpawnTarget()
     {
@@ -29,22 +17,21 @@ public class SpawnManager : MonoBehaviour
         var randRot = Quaternion.Euler(0, 0, Random.Range(-45, 45));
         var spawnPos = new Vector3(Random.Range(-_spawnRangeX, _spawnRangeX), Random.Range(-_spawnRangeY, _spawnRangeY),
             20f);
-        var newTarget = Instantiate(_spherePrefab, spawnPos, randRot);
-        
+
         // check if player is alive
-        if (_gameManager.isAlive())
+        if (_gameManager.IsAlive())
         {
+            Instantiate(_targetPrefab, spawnPos, randRot);
             Invoke(nameof(SpawnTarget), randTime);
         }
         else
         {
-            // optimize stop new spawned hands from moving
+            CancelInvoke();
+            
             foreach (var target in GameObject.FindGameObjectsWithTag("Target"))
             {
                 Destroy(target);
             }
-
-            CancelInvoke();
         }
     }
 }

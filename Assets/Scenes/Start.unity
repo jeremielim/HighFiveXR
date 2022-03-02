@@ -919,12 +919,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8dbeedfbde7c5947a5fee3b231c1559, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spherePrefab: {fileID: 6472040559037295981, guid: cbef2b46fd9ce5d42a9348fefbe8a7a7, type: 3}
+  _targetPrefab: {fileID: 6472040559037295981, guid: cbef2b46fd9ce5d42a9348fefbe8a7a7, type: 3}
   _spawnRangeX: 1
   _spawnRangeY: 1
   _startDelay: 0
   _gameManager: {fileID: 1895002221}
-  _willSpawn: 0
 --- !u!1 &1895002219
 GameObject:
   m_ObjectHideFlags: 0
@@ -969,6 +968,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f13f2e9c29d4e62459fdf345ddda6e6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _highScoreText: {fileID: 0}
   _scoreText: {fileID: 1464137317}
   _lifeText: {fileID: 701097809}
   _spawnManager: {fileID: 1750179329}
@@ -1126,11 +1126,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8600222288619059170, guid: 104ac08956d977a4bb95a44e490a789a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.093
+      value: -0.238
       objectReference: {fileID: 0}
     - target: {fileID: 8600222288619059170, guid: 104ac08956d977a4bb95a44e490a789a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.396
+      value: 1.8
       objectReference: {fileID: 0}
     - target: {fileID: 8600222288619059170, guid: 104ac08956d977a4bb95a44e490a789a, type: 3}
       propertyPath: m_LocalRotation.w

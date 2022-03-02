@@ -28,7 +28,7 @@ public class PlayerManager : MonoBehaviour
 
         if (Input.GetMouseButton(0))
         {
-            transform.position = new Vector3(newPos.x, newPos.y, Mathf.Lerp(newPos.z, 1.0f, t));
+            transform.position = new Vector3(newPos.x, newPos.y, Mathf.Lerp(newPos.z, 1.6f, t));
             t += speed * Time.deltaTime;
             // newPos.z = 0.8f;
 

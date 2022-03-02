@@ -1,24 +1,27 @@
-using System;
 using TMPro;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] private TextMeshProUGUI _highScoreText;
     [SerializeField] private TextMeshProUGUI _scoreText;
     [SerializeField] private TextMeshProUGUI _lifeText;
     [SerializeField] private SpawnManager _spawnManager;
     [SerializeField] private GameObject _startButton;
-    
-
-    private bool _isAlive;
-    private bool _gameStart;
 
     private int _score;
     private int _livesLeft;
+    private int _lifeStart;
+    private bool _isAlive;
+    private SpawnManager _spawnManagerComponent;
 
     private void Start()
     {
-        _livesLeft = 3;
+        _spawnManagerComponent = _spawnManager.GetComponent<SpawnManager>();
+        _scoreText.gameObject.SetActive(false);
+        _lifeText.gameObject.SetActive(false);
+        _lifeStart = 3;
+        _livesLeft = _lifeStart;
         _score = 0;
     }
 
@@ -29,24 +32,30 @@ public class GameManager : MonoBehaviour
 
         if (_livesLeft < 1)
         {
+            GameOver();
             _isAlive = false;
         }
-
-        isAlive();
     }
 
     public void StartGame()
     {
-        _startButton.SetActive(false);
+        _spawnManagerComponent.Invoke("SpawnTarget", 0.3f);
+        
+        _scoreText.gameObject.SetActive(true);
+        _lifeText.gameObject.SetActive(true);
         _isAlive = true;
-        _spawnManager.enabled = true;
-        _spawnManager._willSpawn = true;
+
+        _livesLeft = _lifeStart;
+        _startButton.SetActive(false);
+
+        Debug.Log("Game start");
     }
 
-    public bool isAlive()
+    public bool IsAlive()
     {
         return _isAlive;
     }
+
 
     public void UpdateLife(int lifeAmount)
     {
@@ -58,15 +67,13 @@ public class GameManager : MonoBehaviour
         _score += scoreAmount;
     }
 
-    public void GameOver()
+    private void GameOver()
     {
         _startButton.SetActive(true);
-        _isAlive = false;
-        _spawnManager.enabled = false;
-        _spawnManager._willSpawn = false;
+        Debug.Log("Game over");
     }
-    
-    
+
+
     [System.Serializable]
     class SaveData
     {

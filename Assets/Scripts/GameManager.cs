@@ -1,4 +1,3 @@
-using System;
 using System.IO;
 using TMPro;
 using UnityEngine;
@@ -37,29 +36,44 @@ public class GameManager : MonoBehaviour
         _scoreText.text = "Score: " + _score;
         _lifeText.text = "Life: " + _livesLeft;
 
-        if (_livesLeft >= 1) return;
+        if (IsAlive()) return;
+
+        _spawnManagerComponent.CancelInvoke();
+        _spawnManagerComponent.DestroySpawnedTargets();
         StopGame();
     }
 
     public void StartGame()
     {
-        _spawnManagerComponent.Invoke("SpawnTarget", 0.3f);
+        _startButton.SetActive(false);
 
         _highScoreText.gameObject.SetActive(true);
         _scoreText.gameObject.SetActive(true);
         _lifeText.gameObject.SetActive(true);
-        _isAlive = true;
+
+        _spawnManagerComponent.SpawnTarget();
 
         _livesLeft = _lifeStart;
         _score = 0;
-        _startButton.SetActive(false);
 
         Debug.Log("Game start");
     }
 
-    public bool IsAlive()
+    private void StopGame()
     {
-        return _isAlive;
+        _startButton.SetActive(true);
+        _isAlive = false;
+
+        if (_score <= _highScore) return;
+
+        _highScore = _score;
+        _highScoreText.text = "High score: " + _highScore;
+        SaveHighScore();
+    }
+
+    private bool IsAlive()
+    {
+        return _isAlive = _livesLeft > 0 ? true : false;
     }
 
     public void UpdateLife(int lifeAmount)
@@ -72,27 +86,14 @@ public class GameManager : MonoBehaviour
         _score += scoreAmount;
     }
 
-    private void StopGame()
-    {
-        if (_score > _highScore)
-        {
-            _highScore = _score;
-            _highScoreText.text = "High score: " + _highScore;
-            SaveHighScore();
-        }
-
-        _startButton.SetActive(true);
-        _isAlive = false;
-    }
-
 
     [System.Serializable]
-    class SaveData
+    private class SaveData
     {
         public int topScore;
     }
 
-    public void SaveHighScore()
+    private void SaveHighScore()
     {
         var data = new SaveData();
         data.topScore = _highScore;
@@ -101,7 +102,7 @@ public class GameManager : MonoBehaviour
         File.WriteAllText(Application.persistentDataPath + "/savefile.json", json);
     }
 
-    public void LoadHighScore()
+    private void LoadHighScore()
     {
         var path = Application.persistentDataPath + "/savefile.json";
         if (File.Exists(path))

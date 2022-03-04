@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 4400743968244825008}
   - component: {fileID: 9032757927954295417}
   - component: {fileID: 8961773583431276759}
-  - component: {fileID: 4846326156817603541}
+  - component: {fileID: 1858988524528757842}
   m_Layer: 0
-  m_Name: TargetSine
+  m_Name: TargetRotation
   m_TagString: Target
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -64,7 +64,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &4846326156817603541
+--- !u!114 &1858988524528757842
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -73,12 +73,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 6472040559037295981}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 178c85086a0937d4f91e5b638ff63b03, type: 3}
+  m_Script: {fileID: 11500000, guid: cb74269cbbbde7c40a2159f1db8c2120, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 3
   moveDirection: {x: 0, y: 0, z: -1}
-  _angRad: 0.7853982
+  rotationSpeed: 0.05
 --- !u!1001 &6097468494973596820
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -145,7 +145,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 3d0bd0d9f350320438513101bead190a, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 53de9d17cada4d049ae9c276c814662d, type: 2}
+      objectReference: {fileID: 2100000, guid: d4decb0306cb7d1428fbbd45f8e213a9, type: 2}
     - target: {fileID: 919132149155446097, guid: 3d0bd0d9f350320438513101bead190a, type: 3}
       propertyPath: m_Name
       value: Target

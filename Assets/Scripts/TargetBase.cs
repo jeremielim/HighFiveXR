@@ -3,7 +3,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class TargetBase : MonoBehaviour
 {
-    [SerializeField] protected int speed;
+    [SerializeField] protected float speed;
     [SerializeField] protected Vector3 moveDirection;
 
     protected Rigidbody _rb;

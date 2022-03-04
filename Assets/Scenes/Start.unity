@@ -919,11 +919,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8dbeedfbde7c5947a5fee3b231c1559, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _targetPrefab: {fileID: 6472040559037295981, guid: cbef2b46fd9ce5d42a9348fefbe8a7a7, type: 3}
+  _targetPrefab:
+  - {fileID: 6472040559037295981, guid: cbef2b46fd9ce5d42a9348fefbe8a7a7, type: 3}
+  - {fileID: 6472040559037295981, guid: 0d38d999c2160f34c87f10d5fafded5a, type: 3}
+  - {fileID: 6472040559037295981, guid: 4927d73a8726c5d4b87f6022d14de912, type: 3}
   _spawnRangeX: 1
   _spawnRangeY: 1
-  _startDelay: 0
-  _gameManager: {fileID: 1895002221}
+  _startDistance: 20
 --- !u!1 &1895002219
 GameObject:
   m_ObjectHideFlags: 0
@@ -1059,6 +1061,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6653215865403039833, guid: beed8444ab369b24e88ba97b5f1f976a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6653215865403039838, guid: beed8444ab369b24e88ba97b5f1f976a, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -1115,6 +1121,10 @@ PrefabInstance:
     - target: {fileID: 8600222288619059169, guid: 104ac08956d977a4bb95a44e490a789a, type: 3}
       propertyPath: m_Name
       value: PhysicsButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 8600222288619059169, guid: 104ac08956d977a4bb95a44e490a789a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8600222288619059170, guid: 104ac08956d977a4bb95a44e490a789a, type: 3}
       propertyPath: m_RootOrder

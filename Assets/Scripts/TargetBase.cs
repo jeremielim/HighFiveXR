@@ -1,15 +1,16 @@
 using UnityEngine;
-using Random = UnityEngine.Random;
 
-public class TargetManager : MonoBehaviour
+[RequireComponent(typeof(Rigidbody))]
+public class TargetBase : MonoBehaviour
 {
-    private Rigidbody _rb;
-    private int _randAcc;
+    [SerializeField] protected int speed;
+    [SerializeField] protected Vector3 moveDirection;
+
+    protected Rigidbody _rb;
 
     private void Start()
     {
         _rb = transform.GetComponent<Rigidbody>();
-        _randAcc = Random.Range(1, 20);
     }
 
     public void FixedUpdate()
@@ -17,9 +18,9 @@ public class TargetManager : MonoBehaviour
         Move();
     }
 
-    private void Move()
+    protected virtual void Move()
     {
-        _rb.AddForce(Vector3.back * _randAcc, ForceMode.Force);
+        _rb.AddForce(moveDirection * speed, ForceMode.Force);
     }
 
     public void StopMoving()

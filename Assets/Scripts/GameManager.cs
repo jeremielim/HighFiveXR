@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager Instance;
+    
     [SerializeField] private TextMeshProUGUI _highScoreText;
     [SerializeField] private TextMeshProUGUI _scoreText;
     [SerializeField] private TextMeshProUGUI _lifeText;
@@ -20,6 +22,8 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         LoadHighScore();
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
     }
 
     private void Start()
